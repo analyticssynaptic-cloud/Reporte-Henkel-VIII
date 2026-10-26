@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henkel GLISS · Intelligence Report · Acumulado · 4 Sep al 25 Oct 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --p-navy: #241c1c; --p-deep: #a30000; --p-blue: #E1000F; --p-sky: #ff5c5c; --p-aqua: #ff4b4b; --p-mint: #ffdede;
+    --p-fresh: #fff0f0; --p-white: #ffffff; --p-gray: #8a7a7b; --p-gray2: #cdc0c1;
+    --p-border: #ecd8d8; --p-line: #f1e8e8; --p-soft: #f6f5f5; --p-green: #0e7a5f; --p-orange: #a86a1a;
+    --p-red: #7a2020; --p-gold: #a37b3a; --p-plum: #6b4e88; --p-graddark: #7a0000;
+}
+* { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--p-soft); color: var(--p-navy); margin: 0; padding: 0; overflow-x: hidden; letter-spacing: -0.005em; }
+
+.hero { height: 480px; background: radial-gradient(circle at 80% 15%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(140deg, var(--p-aqua) 0%, var(--p-blue) 55%, var(--p-graddark) 100%); display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--p-graddark), var(--p-blue), var(--p-sky)); }
+.hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(180deg, transparent, var(--p-soft)); }
+.hero-topbar { position: absolute; top: 30px; left: 50px; right: 50px; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); font-weight: 600; z-index: 3; }
+.hero-topbar .brand-mark { display: inline-flex; align-items: center; gap: 12px; }
+.hero-topbar .brand-mark .mk { width: 32px; height: 32px; border: 1.5px solid rgba(255, 255, 255, 0.85); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem; }
+.hero-topbar .meta { display: flex; gap: 40px; }
+.hero-topbar .meta div span:first-child { color: rgba(255, 255, 255, 0.55); margin-right: 8px; }
+.hero-content { position: relative; z-index: 2; padding: 0 40px; max-width: 1080px; }
+.hero .brand-line { font-size: 0.75rem; letter-spacing: 8px; text-transform: uppercase; color: var(--p-fresh); font-weight: 700; margin-bottom: 22px; }
+.hero h1 { font-size: 4.6rem; font-weight: 900; margin: 0; letter-spacing: -3px; line-height: 1; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.30); }
+.hero h1 .lit { font-weight: 300; color: rgba(255, 255, 255, 0.85); }
+.hero h1 .accent { background: linear-gradient(90deg, #ffffff, var(--p-mint)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 9px; margin-top: 30px; font-weight: 600; color: var(--p-fresh); }
+.hero .hero-facts { display: flex; gap: 60px; justify-content: center; margin-top: 45px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.18); max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero .hero-facts div .n { font-size: 1.9rem; font-weight: 800; color: white; line-height: 1; letter-spacing: -1px; }
+.hero .hero-facts div .l { font-size: 0.66rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); margin-top: 8px; font-weight: 600; }
+
+.container { max-width: 1360px; margin: -80px auto 0; padding: 0 20px; position: relative; z-index: 3; }
+
+.exec-summary { background: var(--p-white); padding: 55px; border-radius: 4px; box-shadow: 0 25px 55px -10px rgba(26, 18, 16, 0.14); margin-bottom: 45px; border: 1px solid var(--p-border); position: relative; overflow: hidden; }
+.exec-summary::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--p-graddark), var(--p-blue), var(--p-sky)); }
+.exec-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--p-line); padding-bottom: 24px; margin-bottom: 40px; }
+.exec-head .kicker { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--p-gray); font-weight: 700; }
+.exec-head h2 { font-size: 1.6rem; margin: 0; font-weight: 800; letter-spacing: -1px; color: var(--p-navy); }
+.exec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 50px; }
+.exec-item { display: flex; gap: 20px; }
+.exec-item .ico { width: 42px; height: 42px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #fdeceb; color: var(--p-blue); border-radius: 4px; font-size: 1rem; }
+.exec-item h4 { margin: 0 0 8px; color: var(--p-navy); text-transform: uppercase; font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px; }
+.exec-item p { margin: 0; font-size: 0.9rem; line-height: 1.65; color: var(--p-gray); }
+.exec-item p strong { color: var(--p-navy); font-weight: 700; }
+
+.spotlight { background: linear-gradient(140deg, var(--p-aqua) 0%, var(--p-blue) 55%, var(--p-graddark) 100%); color: white; border-radius: 4px; padding: 40px 50px; margin-bottom: 45px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; box-shadow: 0 20px 45px rgba(122, 0, 0, 0.25); position: relative; overflow: hidden; }
+.spotlight::after { content: ''; position: absolute; top: -120px; right: -120px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%); border-radius: 50%; }
+.sp-stat { text-align: left; border-right: 1px solid rgba(255, 255, 255, 0.14); padding-right: 20px; position: relative; z-index: 1; }
+.sp-stat:last-child { border-right: none; }
+.sp-stat .sp-lbl { font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--p-fresh); font-weight: 700; margin-bottom: 14px; opacity: 0.9; }
+.sp-stat h2 { font-size: 2.5rem; font-weight: 800; margin: 0; color: white; letter-spacing: -1.5px; line-height: 1; }
+.sp-stat h2 small { font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.6); margin-left: 4px; }
+.sp-stat .sp-sub { font-size: 0.75rem; color: rgba(255, 255, 255, 0.62); margin-top: 12px; line-height: 1.5; font-weight: 500; }
+
+.section-hero { display: flex; align-items: baseline; gap: 22px; margin: 65px 0 6px; }
+.section-hero .num { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--p-gray); font-weight: 800; padding: 6px 12px; border: 1px solid var(--p-border); border-radius: 2px; }
+.section-title { font-size: 2.1rem; font-weight: 800; text-align: left; color: var(--p-navy); margin: 0; letter-spacing: -1.2px; line-height: 1.1; }
+.section-title em { font-style: normal; color: var(--p-blue); font-weight: 800; }
+.section-sub { color: var(--p-gray); font-size: 0.94rem; margin: 14px 0 32px; max-width: 880px; line-height: 1.65; }
+.subsection-title { font-size: 1.2rem; font-weight: 800; color: var(--p-navy); margin: 38px 0 10px; letter-spacing: -0.4px; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 26px; }
+.kpi-card { background: var(--p-white); padding: 26px 24px; border-radius: 4px; border: 1px solid var(--p-border); transition: 0.2s; position: relative; }
+.kpi-card:hover { border-color: var(--p-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 18, 16, 0.08); }
+.kpi-card::before { content: ''; position: absolute; top: 0; left: 0; height: 2px; width: 40px; background: var(--p-blue); }
+.kpi-card .k-ico { width: 32px; height: 32px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--p-blue); font-size: 1rem; }
+.kpi-card .k-lbl { font-size: 0.66rem; font-weight: 800; color: var(--p-gray); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.kpi-card h3 { font-size: 2.3rem; margin: 0; color: var(--p-navy); font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.kpi-card h3 small { font-size: 1rem; font-weight: 500; color: var(--p-gray); margin-left: 3px; }
+.kpi-card .k-note { font-size: 0.77rem; color: var(--p-gray); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--p-line); line-height: 1.55; }
+.kpi-card.pos::before, .kpi-card.pos h3, .kpi-card.pos .k-ico { color: var(--p-green); }
+.kpi-card.pos::before { background: var(--p-green); }
+.kpi-card.warn::before, .kpi-card.warn h3, .kpi-card.warn .k-ico { color: var(--p-orange); }
+.kpi-card.warn::before { background: var(--p-orange); }
+.kpi-card.neg::before, .kpi-card.neg h3, .kpi-card.neg .k-ico { color: var(--p-red); }
+.kpi-card.neg::before { background: var(--p-red); }
+
+.func-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 26px; }
+.func-block { background: var(--p-white); border: 1px solid var(--p-border); border-radius: 4px; padding: 30px; border-top: 3px solid var(--p-blue); }
+.func-block.impulso { border-top-color: var(--p-orange); }
+.func-block .func-head { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.func-block .func-ico { width: 36px; height: 36px; border-radius: 4px; background: #fdeceb; color: var(--p-blue); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.func-block.impulso .func-ico { color: var(--p-orange); background: #f7edd6; }
+.func-block h3 { margin: 0; font-size: 1.15rem; color: var(--p-navy); font-weight: 800; letter-spacing: -0.4px; }
+.func-block .func-sub { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--p-gray); font-weight: 700; margin-top: 2px; }
+.func-row { display: flex; justify-content: space-between; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--p-line); }
+.func-row:last-child { border-bottom: none; padding-bottom: 0; }
+.func-row .fr-lbl { font-size: 0.86rem; color: var(--p-gray); font-weight: 500; }
+.func-row .fr-lbl small { display: block; font-size: 0.71rem; color: var(--p-gray2); margin-top: 2px; }
+.func-row .fr-val { font-size: 1.1rem; font-weight: 800; color: var(--p-navy); font-variant-numeric: tabular-nums; }
+.func-note { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--p-line); font-size: 0.81rem; color: var(--p-gray); line-height: 1.6; }
+.func-note strong { color: var(--p-navy); }
+
+.chart-box { background: var(--p-white); padding: 34px; border-radius: 4px; border: 1px solid var(--p-border); width: 100%; margin-bottom: 26px; }
+.chart-box .cb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.chart-box h3 { margin: 0; font-size: 1.1rem; color: var(--p-navy); font-weight: 800; letter-spacing: -0.5px; }
+.chart-box .cb-tag { font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--p-gray); font-weight: 700; }
+.chart-box .cb-sub { font-size: 0.84rem; color: var(--p-gray); margin: 0 0 24px; line-height: 1.6; max-width: 780px; }
+.chart-container { height: 320px; width: 100%; position: relative; }
+.chart-container-sm { height: 260px; width: 100%; position: relative; }
+.chart-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 26px; }
+
+.table-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 30px; }
+.table-container { background: white; padding: 30px; border-radius: 4px; border: 1px solid var(--p-border); }
+.table-container.full { grid-column: 1 / -1; }
+.table-container h3 { margin: 0 0 4px; font-size: 1.02rem; color: var(--p-navy); font-weight: 800; letter-spacing: -0.3px; }
+.table-container .tbl-sub { margin: 0 0 18px; font-size: 0.8rem; color: var(--p-gray); line-height: 1.5; }
+.table-data { width: 100%; border-collapse: collapse; }
+.table-data th { text-align: left; padding: 11px 8px 11px 0; color: var(--p-gray); border-bottom: 1px solid var(--p-navy); font-size: 0.63rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+.table-data td { padding: 12px 8px 12px 0; border-bottom: 1px solid var(--p-line); font-size: 0.85rem; font-weight: 500; color: var(--p-navy); }
+.table-data tr:last-child td { border-bottom: none; border-top: 1px solid var(--p-navy); font-weight: 800; padding-top: 15px; color: var(--p-blue); }
+.table-data .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.table-data.no-total tr:last-child td { border-top: none; border-bottom: 1px solid var(--p-line); font-weight: 500; color: var(--p-navy); padding-top: 12px; }
+.table-scroll { max-height: 420px; overflow-y: auto; }
+.pill { display: inline-block; padding: 3px 10px; font-size: 0.63rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px; border: 1px solid; }
+.pill.neutral { background: var(--p-soft); color: var(--p-gray); border-color: var(--p-border); }
+.pill.accent { background: #fdeceb; color: var(--p-blue); border-color: #f6c9c5; }
+.pill.pos { background: #e0efe9; color: var(--p-green); border-color: #b8dbcc; }
+.pill.warn { background: #f7edd6; color: var(--p-orange); border-color: #e2c896; }
+.pill.neg { background: #f0dcdc; color: var(--p-red); border-color: #d9b6b6; }
+
+.strategy-box { background: linear-gradient(140deg, var(--p-aqua) 0%, var(--p-blue) 55%, var(--p-graddark) 100%); color: white; padding: 55px; border-radius: 4px; margin-bottom: 55px; position: relative; overflow: hidden; }
+.strategy-box::before { content: ''; position: absolute; top: -80px; right: -80px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%); border-radius: 50%; }
+.strategy-box .kick { font-size: 0.7rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--p-fresh); font-weight: 700; margin-bottom: 16px; position: relative; }
+.strategy-box h3 { font-size: 1.75rem; margin: 0 0 12px; color: white; font-weight: 800; letter-spacing: -1px; position: relative; }
+.strategy-box .sub { color: rgba(255, 255, 255, 0.75); margin: 0 0 36px; font-size: 0.96rem; max-width: 720px; line-height: 1.65; position: relative; }
+.strat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; position: relative; }
+.strat-item { padding: 22px 24px; border-left: 2px solid var(--p-fresh); background: rgba(255, 255, 255, 0.02); }
+.strat-item h6 { color: var(--p-fresh); font-size: 0.66rem; margin: 0 0 10px; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
+.strat-item h6 .st-ico { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; color: var(--p-fresh); font-size: 0.82rem; }
+.strat-item p { font-size: 0.86rem; opacity: 0.9; line-height: 1.6; margin: 0; color: rgba(255, 255, 255, 0.85); }
+
+.voz-wrap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 30px; }
+.voz-card { border: 1px solid #ece2e2; border-left: 3px solid var(--p-blue, #E1000F); border-radius: 4px; padding: 24px 26px; background: #fff; }
+.voz-card .vz-tag { font-size: 0.62rem; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 800; color: #a37b3a; margin-bottom: 10px; }
+.voz-card h4 { margin: 0 0 10px; font-size: 1.02rem; font-weight: 800; letter-spacing: -0.4px; color: #241c1c; }
+.voz-card p { margin: 0; font-size: 0.88rem; line-height: 1.7; color: #5c5050; }
+.voz-card p + p { margin-top: 10px; }
+@media (max-width: 900px) { .voz-wrap { grid-template-columns: 1fr; } }
+.foot { background: linear-gradient(140deg, var(--p-graddark), var(--p-blue) 60%, var(--p-aqua)); color: white; padding: 80px 0 40px; margin-top: 65px; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+.foot-in { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+.foot-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+.foot-brand { font-size: 2.9rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; margin: 0 0 14px; }
+.foot-brand .accent { background: linear-gradient(90deg, #ffffff, var(--p-mint)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.foot-brand-sub { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); font-weight: 600; }
+.foot-col h6 { font-size: 0.66rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--p-fresh); font-weight: 800; margin: 0 0 16px; }
+.foot-col p { font-size: 0.86rem; line-height: 1.65; color: rgba(255, 255, 255, 0.72); margin: 0 0 8px; }
+.foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; font-size: 0.67rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255, 255, 255, 0.42); font-weight: 600; }
+
+.carousel { max-width: 780px; margin: 0 auto 26px; }
+.car-row { display: flex; align-items: center; justify-content: center; height: 440px; }
+.car-side { width: 110px; height: 84%; flex-shrink: 0; border-radius: 4px; overflow: hidden; filter: blur(4px); opacity: 0.5; transform: scale(0.94); cursor: pointer; transition: filter .3s ease, opacity .3s ease, transform .3s ease; background: var(--p-navy); }
+.car-side:hover { opacity: 0.75; }
+.car-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.car-side.left { mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0)); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0)); margin-right: -18px; }
+.car-side.right { mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0)); -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0)); margin-left: -18px; }
+.car-stage { position: relative; width: 340px; max-width: 56vw; height: 100%; flex-shrink: 0; background: var(--p-navy); border-radius: 4px; overflow: hidden; cursor: pointer; box-shadow: 0 15px 35px rgba(122,0,0,0.22); z-index: 2; }
+.car-stage img { width: 100%; height: 100%; object-fit: contain; display: block; transition: opacity 0.25s ease; }
+.car-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); color: var(--p-navy); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
+.car-nav:hover { background: #fff; }
+.car-nav.prev { left: 12px; } .car-nav.next { right: 12px; }
+.car-counter { position: absolute; bottom: 12px; right: 14px; background: rgba(36,28,28,0.6); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+.car-caption { text-align: center; padding: 14px 10px 2px; }
+.car-caption #carPdv { font-size: 1rem; font-weight: 800; color: var(--p-navy); }
+.car-caption #carMeta { font-size: 0.78rem; color: var(--p-gray); margin-top: 3px; }
+
+@media (max-width: 1024px) {
+    .exec-grid, .strat-grid, .chart-split, .func-wrap { grid-template-columns: 1fr; }
+    .table-wrapper, .foot-top { grid-template-columns: 1fr; }
+    .spotlight { grid-template-columns: 1fr 1fr; }
+    .sp-stat { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.14); padding-bottom: 20px; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-topbar { display: none; }
+}
+@media (max-width: 640px) { .car-nav { width: 36px; height: 36px; } .car-side { display: none; } .car-stage { max-width: 88vw; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-topbar">
+        <div class="brand-mark"><div class="mk">H</div><span>Henkel GLISS · Intelligence</span></div>
+        <div class="meta">
+            <div><span>Tipo</span><b>Lanzamiento</b></div>
+            <div><span>Cobertura</span><b>Nacional</b></div>
+            <div><span>Alcance</span><b>Interno</b></div>
+        </div>
+    </div>
+    <div class="hero-content">
+        <div class="brand-line">Portafolio GLISS · Canal Moderno y Tradicional</div>
+        <h1><span class="lit">Radar</span> <span class="accent">Nacional</span></h1>
+        <p class="subtitle">Informe de Resultados · Acumulado · 4 de Septiembre al 25 de Octubre 2026</p>
+        <div class="hero-facts">
+            <div><div class="n">332</div><div class="l">Visitas realizadas</div></div>
+            <div><div class="n">4.153</div><div class="l">Unidades vendidas</div></div>
+            <div><div class="n">62</div><div class="l">PDVs activos</div></div>
+            <div><div class="n">6</div><div class="l">Ciudades activas</div></div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <section class="exec-summary">
+        <div class="exec-head">
+            <span class="kicker">4 de septiembre al 25 de octubre 2026 · ocho fines de semana</span>
+            <h2>Los cuatro puntos del acumulado</h2>
+        </div>
+        <div class="exec-grid">
+            <div class="exec-item">
+                <div class="ico"><i class="fa-regular fa-map"></i></div>
+                <div>
+                    <h4>01 · 332 visitas ejecutadas en ocho fines de semana</h4>
+                    <p>Entre el 4 de septiembre y el 25 de octubre se ejecutaron <strong>332 visitas en ocho fines de semana</strong>: FS1 a FS8 (30 visitas en el FS8, con 15 gestoras activas). <strong>Reposición PDV:</strong> el domingo 25 se repuso 1 PDV (Éxito Envigado Wow) y la ruta se mantiene <strong>al día, con cobertura del 100%</strong>.</p>
+                </div>
+            </div>
+            <div class="exec-item">
+                <div class="ico"><i class="fa-solid fa-cash-register"></i></div>
+                <div>
+                    <h4>02 · 4.153 unidades vendidas en el acumulado</h4>
+                    <p><strong>98.5% de tasa de cierre</strong> (327 de 332 visitas). El FS8 suma <strong>256 unidades en 3 días de ruta</strong>, con venta en las 30 visitas (100% de cierre). <strong>4.153 unidades en total</strong>: 3.436 del canal moderno y 717 del tradicional.</p>
+                </div>
+            </div>
+            <div class="exec-item">
+                <div class="ico"><i class="fa-solid fa-tag"></i></div>
+                <div>
+                    <h4>03 · GLISS es el 88% de todo lo vendido</h4>
+                    <p><strong>GLISS acumula el 88.0%</strong> de las unidades vendidas (3.655 de 4.153) y en el FS8 alcanza el <strong>99.6%</strong> de la mezcla vendida (255 de 256 unidades). El producto ancla sigue siendo el <strong>combo shampoo + acondicionador Ultimate Repair</strong>, con 731 unidades acumuladas (41 en el FS8).</p>
+                </div>
+            </div>
+            <div class="exec-item">
+                <div class="ico"><i class="fa-solid fa-gift"></i></div>
+                <div>
+                    <h4>04 · 2.090 premios redimidos en el acumulado</h4>
+                    <p>Se entregaron <strong>2.090 premios</strong> frente a <strong>4.153 unidades vendidas</strong>: 0.50 premios por cada unidad. El FS8 aporta <strong>125 premios</strong>, con el gorro como referencia más entregada (41 unidades). El <strong>scrunchi</strong> sigue siendo el más redimido del acumulado (673 uds., 32.2% del mix). Ver el detalle en la sección 03.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="spotlight">
+        <div class="sp-stat"><div class="sp-lbl">Cobertura</div><h2>100<small>%</small></h2><div class="sp-sub">305 de 305 turnos de FS1 a FS8, con la ruta al día</div></div>
+        <div class="sp-stat"><div class="sp-lbl">Tasa de cierre</div><h2>98.5<small>%</small></h2><div class="sp-sub">Sobre las 332 visitas acumuladas</div></div>
+        <div class="sp-stat"><div class="sp-lbl">Unidades vendidas</div><h2>4.153</h2><div class="sp-sub">3.436 canal moderno · 717 canal tradicional</div></div>
+        <div class="sp-stat"><div class="sp-lbl">Participación GLISS</div><h2>88.0<small>%</small></h2><div class="sp-sub">Por nombre de producto vendido</div></div>
+        <div class="sp-stat"><div class="sp-lbl">Premios redimidos</div><h2>2.090</h2><div class="sp-sub">4 referencias del kit de impulso GLISS</div></div>
+    </div>
+
+    <!-- 00 -->
+    <div class="section-hero"><div class="num">00</div><h2 class="section-title">Comparativo <em>semana a semana</em></h2></div>
+    <p class="section-sub">Cómo se comparan los ocho fines de semana de ejecución: <strong>FS1</strong> (4 al 6 de septiembre), <strong>FS2</strong> (11 al 13, con jornada de recuperación el domingo), <strong>FS3</strong> (18 al 20), <strong>FS4</strong> (25 al 27, con reposición de turnos el domingo), <strong>FS5</strong> (2 al 4 de octubre), <strong>FS6</strong> (9 al 11, con reposición de PDV el domingo), <strong>FS7</strong> (16 al 18, con ruta plena el domingo) y <strong>FS8</strong> (23 al 25, con reposición de PDV el domingo).</p>
+
+    <div class="kpi-row">
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-bullseye"></i></div><div class="k-lbl">Ruta al día</div><h3>100<small>%</small></h3><div class="k-note">Todos los turnos de FS1 a FS8 con cobertura confirmada, contando las reposiciones.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-calendar-check"></i></div><div class="k-lbl">Reposición PDV FS8</div><h3>1</h3><div class="k-note"><strong>Éxito Envigado Wow</strong>, repuesto el domingo 25.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-cash-register"></i></div><div class="k-lbl">Tasa de cierre FS8</div><h3>100<small>%</small></h3><div class="k-note">Venta registrada en las 30 visitas del fin de semana.</div></div>
+    </div>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Unidades vendidas por día: FS1 a FS8</h3><div class="cb-tag">Fig. 00a</div></div>
+            <p class="cb-sub">Solo se comparan viernes y sábado, los dos días plenos de ruta en los ocho fines de semana. Los domingos tuvieron dinámicas distintas en cada corte (recuperación o reposición en FS2, FS4, FS6 y FS8; ruta plena en FS5 y FS7). En el FS8, el viernes sumó 126 unidades y el sábado 118.</p>
+            <div class="chart-container-sm" style="height:300px;"><canvas id="chartCompVentas"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Indicadores clave: FS1 a FS8</h3><div class="cb-tag">Fig. 00b</div></div>
+            <p class="cb-sub">Desde el FS5, la tasa de cierre se mantiene en 100% y la participación de GLISS entre 99.6% y 100%; la cobertura queda en 100% al cierre del FS8.</p>
+            <div class="chart-container-sm" style="height:300px;"><canvas id="chartCompIndicadores"></canvas></div>
+        </div>
+    </div>
+
+    <div class="table-container full" style="margin-bottom:26px;">
+        <h3>Comparativo completo</h3>
+        <div class="table-scroll">
+        <table class="table-data no-total">
+            <tr><th>Indicador</th><th class="num">FS1 · 4-6 sep</th><th class="num">FS2 · 11-13 sep</th><th class="num">FS3 · 18-20 sep</th><th class="num">FS4 · 25-27 sep</th><th class="num">FS5 · 2-4 oct</th><th class="num">FS6 · 9-11 oct</th><th class="num">FS7 · 16-18 oct</th><th class="num">FS8 · 23-25 oct</th><th>FS8 vs. FS7</th></tr>
+            <tr><td>Visitas realizadas</td><td class="num">51</td><td class="num">39</td><td class="num">49</td><td class="num">40</td><td class="num">47</td><td class="num">31</td><td class="num">45</td><td class="num">30</td><td><span class="pill neutral">-15</span></td></tr>
+            <tr><td>PDVs activos</td><td class="num">43</td><td class="num">32</td><td class="num">38</td><td class="num">36</td><td class="num">25</td><td class="num">25</td><td class="num">27</td><td class="num">26</td><td><span class="pill neutral">-1 PDV</span></td></tr>
+            <tr><td>Ciudades activas</td><td class="num">9</td><td class="num">10</td><td class="num">11</td><td class="num">10</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td><span class="pill neutral">Igual</span></td></tr>
+            <tr><td>Cobertura</td><td class="num">94.4%</td><td class="num">100%</td><td class="num">87.5%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td><span class="pill pos">100% al día</span></td></tr>
+            <tr><td>Tasa de cierre</td><td class="num">98.0%</td><td class="num">97.4%</td><td class="num">98.0%</td><td class="num">95.0%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td><span class="pill pos">100%</span></td></tr>
+            <tr><td>Unidades vendidas</td><td class="num">332</td><td class="num">338</td><td class="num">1.008</td><td class="num">628</td><td class="num">598</td><td class="num">387</td><td class="num">606</td><td class="num">256</td><td><span class="pill neutral">-57.8%</span></td></tr>
+            <tr><td>Unidades por visita</td><td class="num">6.5</td><td class="num">8.7</td><td class="num">20.6</td><td class="num">15.7</td><td class="num">12.7</td><td class="num">12.5</td><td class="num">13.5</td><td class="num">8.5</td><td><span class="pill neutral">-5.0</span></td></tr>
+            <tr><td>Participación GLISS</td><td class="num">91.0%</td><td class="num">75.4%</td><td class="num">80.0%</td><td class="num">71.0%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">99.6%</td><td><span class="pill neutral">99.6%</span></td></tr>
+            <tr><td>Premios redimidos</td><td class="num">195</td><td class="num">125</td><td class="num">431</td><td class="num">278</td><td class="num">332</td><td class="num">229</td><td class="num">375</td><td class="num">125</td><td><span class="pill neutral">-66.7%</span></td></tr>
+            <tr><td>Premios por unidad vendida</td><td class="num">0.59</td><td class="num">0.37</td><td class="num">0.43</td><td class="num">0.44</td><td class="num">0.56</td><td class="num">0.59</td><td class="num">0.62</td><td class="num">0.49</td><td><span class="pill neutral">-0.13</span></td></tr>
+            <tr><td>Consumidores encuestados</td><td class="num">277</td><td class="num">220</td><td class="num">258</td><td class="num">197</td><td class="num">216</td><td class="num">145</td><td class="num">213</td><td class="num">134</td><td><span class="pill neutral">-37.1%</span></td></tr>
+        </table>
+        <p class="tbl-sub" style="margin:14px 0 0;">Corte al domingo 25 de octubre: 30 visitas en 26 PDVs de 6 ciudades (15 el viernes, 14 el sábado y 1 de reposición el domingo). Viernes y sábado: 384 unidades en el FS7 y 244 en el FS8.</p>
+        </div>
+    </div>
+
+
+    <!-- RESUMEN FS8 -->
+    <section class="exec-summary" style="margin-top:10px;">
+        <div class="exec-head">
+            <span class="kicker">FS8 · 23 al 25 de octubre 2026</span>
+            <h2>Lo que pasó en la semana 8</h2>
+        </div>
+        <div class="exec-grid">
+            <div class="exec-item"><div class="ico"><i class="fa-regular fa-map"></i></div><div><h4>Ruta ejecutada en 6 ciudades</h4><p><strong>30 visitas en 26 PDVs</strong> (15 el viernes, 14 el sábado y 1 de reposición el domingo), con 15 gestoras activas en Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía. Se suma Euro Arcadia (Medellín) como PDV nuevo en la ruta.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-rotate"></i></div><div><h4>Ruta al día · cobertura 100%</h4><p>Se cubrieron los <strong>30 turnos</strong> del fin de semana y el domingo 25 se repuso 1 PDV (<strong>Éxito Envigado Wow</strong>). Todos los turnos de FS1 a FS8 quedan con cobertura confirmada.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-cash-register"></i></div><div><h4>100% de cierre · 99.6% GLISS</h4><p><strong>256 unidades</strong> con venta registrada en las 30 visitas y 255 de ellas en portafolio GLISS. Viernes 126, sábado 118 y domingo 12. El combo Ultimate Repair lideró con 41 unidades, y la mayor venta individual fue Éxito Country el sábado (24 uds.).</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-gift"></i></div><div><h4>Premios entregados</h4><p>Se entregaron <strong>125 premios</strong>, 0.49 por unidad vendida. El gorro fue la referencia más entregada (41), seguido de cepillo y funda con 29 cada uno y scrunchi con 26.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-users"></i></div><div><h4>Mayor reconocimiento de marca</h4><p>De los <strong>134 consumidores encuestados</strong>, 88 (66.7%) ya conocían la marca, el nivel más alto de los últimos cinco cortes, y 103 (77.4%) dijeron que el punto les gustó o les encantó. Opinión promedio del producto: 3.98 / 5.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-flag"></i></div><div><h4>Hallazgos del fin de semana</h4><p>Las gestoras registraron <strong>47 evidencias de competencia</strong>: descuentos del 25% al 50% en Éxito, "pague 2 lleve 4" en Jumbo Hayuelos y exhibiciones especiales en Euro Arcadia y Éxito Colina. Con ese contexto, el equipo mantuvo el abordaje y cerró el FS8 con 256 unidades.</p></div></div>
+        </div>
+    </section>
+
+    <!-- RESUMEN FS7 -->
+    <section class="exec-summary" style="margin-top:10px;">
+        <div class="exec-head">
+            <span class="kicker">FS7 · 16 al 18 de octubre 2026</span>
+            <h2>Lo que pasó en la semana 7</h2>
+        </div>
+        <div class="exec-grid">
+            <div class="exec-item"><div class="ico"><i class="fa-regular fa-map"></i></div><div><h4>Ruta ejecutada en 6 ciudades</h4><p><strong>45 visitas en 27 PDVs</strong> (14 el viernes, 16 el sábado y 15 el domingo), con 15 gestoras activas en Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-rotate"></i></div><div><h4>Ruta al día · cobertura 100%</h4><p>Viernes y sábado se cubrieron los <strong>30 turnos</strong> de la ruta (14 y 16 visitas) y el domingo 18 se completó una ruta plena de 15 visitas. Todos los turnos de FS1 a FS7 quedan con cobertura confirmada.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-cash-register"></i></div><div><h4>100% de cierre y 100% GLISS</h4><p><strong>606 unidades</strong> y 13.5 por visita, la más alta desde el FS4, con venta en las 45 visitas y toda la mezcla en portafolio GLISS. El domingo fue la jornada de mayor venta (222 uds.), seguido del sábado (204) y el viernes (180). El combo Ultimate Repair lideró con 155 unidades.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-gift"></i></div><div><h4>Premios entregados</h4><p>Se entregaron <strong>375 premios</strong>, 0.62 por unidad vendida: la relación más alta de toda la campaña y la segunda mejor semana en premios. El mix quedó así: cepillo 104, scrunchi 100, gorro 90 y funda 81.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-users"></i></div><div><h4>Buena recepción del consumidor</h4><p>De los <strong>213 consumidores encuestados</strong>, 186 (87.7%) dijeron que el punto les gustó o les encantó y 137 (64.6%) ya conocían la marca. Opinión promedio del producto: 3.95 / 5.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-flag"></i></div><div><h4>Hallazgos del fin de semana</h4><p>Las gestoras registraron <strong>51 evidencias de competencia</strong>: "pague 2 lleve 4" en Jumbo, descuentos del 30% al 70% en la segunda unidad en Éxito y stands de Pantene y Head &amp; Shoulders. Con ese contexto, el equipo mantuvo el abordaje y cerró el FS7 con 606 unidades 100% GLISS.</p></div></div>
+        </div>
+    </section>
+
+    <!-- RESUMEN FS6 -->
+    <section class="exec-summary" style="margin-top:10px;">
+        <div class="exec-head">
+            <span class="kicker">FS6 · 9 al 11 de octubre 2026</span>
+            <h2>Lo que pasó en la semana 6</h2>
+        </div>
+        <div class="exec-grid">
+            <div class="exec-item"><div class="ico"><i class="fa-regular fa-map"></i></div><div><h4>Ruta ejecutada en 6 ciudades</h4><p><strong>31 visitas en 25 PDVs</strong> (15 el viernes, 14 el sábado y 2 de reposición el domingo), con 15 gestoras activas en Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-rotate"></i></div><div><h4>Ruta al día · cobertura 100%</h4><p>El domingo 11 se repusieron <strong>2 PDV</strong> (Éxito Bello y Jumbo Hayuelos) y la ruta quedó al día: todos los turnos de FS1 a FS6 con cobertura confirmada.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-cash-register"></i></div><div><h4>100% de cierre y 100% GLISS</h4><p><strong>387 unidades</strong> y 12.5 por visita, con venta en las 31 visitas y toda la mezcla en portafolio GLISS. El sábado fue la jornada de mayor venta (201 uds.), seguido del viernes (147). El combo Ultimate Repair lideró con 105 unidades.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-gift"></i></div><div><h4>Premios entregados</h4><p>Se entregaron <strong>229 premios</strong>, 0.59 por unidad vendida: la relación más alta de los últimos cinco cortes, al nivel del FS1. El mix quedó así: scrunchi 69, gorro 57, cepillo 53 y funda 50.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-users"></i></div><div><h4>La mejor recepción del consumidor</h4><p>De los <strong>145 consumidores encuestados</strong>, 132 (91.0%) dijeron que el punto les gustó o les encantó, la mejor percepción de los seis cortes. Solo 3 respondieron que no les gustó. Opinión promedio del producto: 4.03 / 5.</p></div></div>
+            <div class="exec-item"><div class="ico"><i class="fa-solid fa-flag"></i></div><div><h4>Hallazgos del fin de semana</h4><p>Las gestoras registraron <strong>48 evidencias de competencia</strong>: descuentos del 25% al 60% en Éxito, Jumbo y Euro, exhibiciones especiales en Éxito Colombia y 8 menciones de Head &amp; Shoulders. Con ese contexto, el equipo mantuvo el abordaje y cerró el FS6 con 387 unidades 100% GLISS.</p></div></div>
+        </div>
+    </section>
+
+            <!-- 01 -->
+    <div class="section-hero"><div class="num">01</div><h2 class="section-title">Eficacia de ruta por <em>canal</em></h2></div>
+
+    <div class="kpi-row">
+        <div class="kpi-card warn"><div class="k-ico"><i class="fa-solid fa-bullseye"></i></div><div class="k-lbl">Cobertura</div><h3>100<small>%</small></h3><div class="k-note">305 de 305 turnos con cobertura confirmada, contando las reposiciones. La ruta se mantiene al día al cierre del FS8.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-regular fa-map"></i></div><div class="k-lbl">PDVs activos</div><h3>62</h3></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-city"></i></div><div class="k-lbl">Ciudades activas</div><h3>6</h3><div class="k-note">Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-users"></i></div><div class="k-lbl">Gestoras en ruta</div><h3>15</h3><div class="k-note">15 gestoras activas en el canal moderno. El domingo 25 se repuso 1 PDV de la ruta.</div></div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Visitas realizadas por día</h3><div class="cb-tag">Fig. 01</div></div>
+        <p class="cb-sub">332 visitas en los veinticuatro días de las ocho rutas. El domingo 13 (7 visitas) fue la jornada especial que compensó los puntos sin actividad del FS2. En el FS8 se ejecutaron 15 y 14 visitas en viernes y sábado, más 1 de reposición el domingo 25.</p>
+        <div class="chart-container"><canvas id="chartCadencia"></canvas></div>
+    </div>
+
+    <div class="subsection-title">Qué pasó en cada canal</div>
+    <div class="func-wrap" style="grid-template-columns:1fr;">
+        <div class="func-block">
+            <div class="func-head"><div class="func-ico"><i class="fa-solid fa-cart-shopping"></i></div><div><h3>Canal Moderno</h3><div class="func-sub">15 gestoras · Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía</div></div></div>
+            <div class="func-row"><span class="fr-lbl">Gestoras en ruta</span><span class="fr-val">15</span></div>
+            <div class="func-row"><span class="fr-lbl">PDVs activos <small>Éxito, Jumbo, Farmatodo, Euro y droguerías</small></span><span class="fr-val">39</span></div>
+            <div class="func-row"><span class="fr-lbl">Visitas realizadas</span><span class="fr-val">301</span></div>
+            <div class="func-row"><span class="fr-lbl">Unidades vendidas</span><span class="fr-val">3.436</span></div>
+            <div class="func-row"><span class="fr-lbl">Unidades por visita</span><span class="fr-val">11.4</span></div>
+            <div class="func-note">El moderno mueve el <strong>83% de las unidades</strong> (3.436 de 4.153) con 15 puestos y 44 puntos de venta.</div>
+        </div>
+    </div>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Visitas realizadas por ciudad</h3><div class="cb-tag">Fig. 03</div></div>
+            <p class="cb-sub">Bogotá y Medellín concentran el 67% de las visitas acumuladas de las ocho rutas.</p>
+            <div class="chart-container-sm" style="height:300px;"><canvas id="chartCobCiudad"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Visitas realizadas por cadena activa</h3><div class="cb-tag">Fig. 04</div></div>
+            <p class="cb-sub">Éxito y Jumbo concentran el grueso de las visitas del canal moderno: 243 de las 332 acumuladas.</p>
+            <div class="chart-container-sm" style="height:300px;"><canvas id="chartCobCadena"></canvas></div>
+        </div>
+    </div>
+
+    <div class="subsection-title">Condiciones puntuales del punto de venta</div>
+    <p class="section-sub" style="margin-top:0;">Situaciones puntuales reportadas en campo en el FS8 (23 al 25 de octubre) que explican por qué algunos puntos no tuvieron el mismo desempeño — no dependen de la ejecución de la visita.</p>
+    <div class="table-container full" style="margin-bottom:26px;">
+        <table class="table-data no-total">
+            <tr><th>Punto de venta</th><th>Ciudad</th><th>Nota</th></tr>
+            <tr><td>Euro Arcadia</td><td>Medellín</td><td>FS8: PDV nuevo en la ruta, con exhibición especial de varias marcas de la competencia.</td></tr>
+            <tr><td>Jumbo Valle de Lili</td><td>Cali</td><td>FS8: la competencia con descuentos del 30% y 45% en cuidado capilar y promoción de "todo a $19.890" en Savital.</td></tr>
+            <tr><td>Jumbo Hayuelos</td><td>Bogotá</td><td>FS8: la competencia con "pague 2 lleve 4" (Nutribela), descuentos del 30% al 45% (Pantene y Herbal Essences) y perfume de obsequio por compras superiores a $60.000.</td></tr>
+            <tr><td>Éxito Oriental Bucaramanga</td><td>Bucaramanga</td><td>FS8: descuentos del 25% al 50% en Herbal Essences, Pantene y Savital.</td></tr>
+            <tr><td>Éxito Colina</td><td>Bogotá</td><td>FS8: stand y exhibiciones especiales de Elvive y Herbal Essences.</td></tr>
+        </table>
+    </div>
+
+    <!-- 02 -->
+    <div class="section-hero"><div class="num">02</div><h2 class="section-title">Ejecución de <em>venta (sell-out)</em></h2></div>
+
+    <div class="func-wrap" style="grid-template-columns:1fr;">
+        <div class="func-block">
+            <div class="func-head"><div class="func-ico"><i class="fa-solid fa-cash-register"></i></div><div><h3>Cierre y volumen</h3><div class="func-sub">Sobre las 332 visitas acumuladas</div></div></div>
+            <div class="func-row"><span class="fr-lbl">Tasa de cierre</span><span class="fr-val">98.5%</span></div>
+            <div class="func-row"><span class="fr-lbl">Unidades vendidas</span><span class="fr-val">4.153</span></div>
+            <div class="func-row"><span class="fr-lbl">Unidades por visita</span><span class="fr-val">12.5</span></div>
+            <div class="func-row"><span class="fr-lbl">Producto ancla <small>combo shampoo + acondicionador Ultimate Repair</small></span><span class="fr-val">731 uds.</span></div>
+            <div class="func-note">El <strong>sábado 19 sigue siendo el pico de toda la campaña</strong> (445 unidades). En el FS8 el viernes sumó 126 unidades, el sábado 118 y el domingo 12, con la reposición de Éxito Envigado Wow.</div>
+        </div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Unidades vendidas por día</h3><div class="cb-tag">Fig. 05</div></div>
+        <p class="cb-sub">Los veinticuatro días de las ocho rutas. El sábado 19 sigue siendo el pico de la campaña. Fueron 20 días de ejecución completa y cuatro días de recuperación o reposición: domingos 13 y 27 de septiembre y 11 y 25 de octubre.</p>
+        <div class="chart-container"><canvas id="chartUnidadesDia"></canvas></div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Marca vendida</h3><div class="cb-tag">Fig. 06</div></div>
+        <p class="cb-sub">GLISS es la gran mayoría de la venta acumulada: 3.655 de las 4.153 unidades. El resto es portafolio complementario que la gestora cierra en el mismo punto (en el FS4 ganaron algo más de peso Konzil, Igora y Persil); del FS5 al FS8 prácticamente la totalidad de las unidades fue GLISS.</p>
+        <div class="chart-container-sm"><canvas id="chartMarcaReal"></canvas></div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Top 10 productos vendidos</h3><div class="cb-tag">Fig. 07</div></div>
+        <p class="cb-sub">El shampoo + acondicionador Ultimate Repair (combo) sigue liderando con holgura (731 uds.) y el Óleo Oil Elixir ocupa el segundo lugar con 375. La parte alta del ranking sigue siendo línea Ultimate Repair y Oil Nutritive.</p>
+        <div class="chart-container" style="height:380px;"><canvas id="chartTopProductos"></canvas></div>
+    </div>
+
+    <div class="subsection-title">Ventas por canal</div>
+    <p class="section-sub" style="margin-top:0;">El moderno pone el volumen; el tradicional pone la productividad por visita.</p>
+    <div class="table-container full" style="margin-bottom:26px;">
+        <table class="table-data">
+            <tr><th>Canal</th><th class="num">PDVs</th><th class="num">Visitas</th><th class="num">Unidades</th><th class="num">Uds. / visita</th><th class="num">% del total</th></tr>
+            <tr><td>Moderno <small>Éxito, Jumbo, Farmatodo, Euro, droguerías</small></td><td class="num">44</td><td class="num">301</td><td class="num">3.436</td><td class="num">11.4</td><td class="num">82.7%</td></tr>
+            <tr><td>Tradicional <small>Cañaveral, Mercaldas, Mercacentro, Surtiplaza, Mercamas, La Montaña, Surtifamiliar, Caribe</small></td><td class="num">18</td><td class="num">31</td><td class="num">717</td><td class="num">23.1</td><td class="num">17.3%</td></tr>
+            <tr><td>Total</td><td class="num">62</td><td class="num">332</td><td class="num">4.153</td><td class="num">12.5</td><td class="num">100%</td></tr>
+        </table>
+    </div>
+
+    <div class="subsection-title">Ventas por ciudad y por cadena</div>
+    <div class="table-wrapper">
+        <div class="table-container">
+            <h3>Por ciudad</h3>
+            <p class="tbl-sub">Visitas y unidades vendidas en el acumulado de las ocho rutas.</p>
+            <table class="table-data">
+                <tr><th>Ciudad</th><th class="num">Visitas</th><th class="num">Unidades</th><th class="num">Uds. / visita</th></tr>
+                <tr><td>Bogotá</td><td class="num">140</td><td class="num">1.361</td><td class="num">9.7</td></tr>
+                <tr><td>Medellín</td><td class="num">84</td><td class="num">1.175</td><td class="num">14.0</td></tr>
+                <tr><td>Cali</td><td class="num">24</td><td class="num">380</td><td class="num">15.8</td></tr>
+                <tr><td>Ibagué</td><td class="num">11</td><td class="num">369</td><td class="num">33.5</td></tr>
+                <tr><td>Bucaramanga</td><td class="num">20</td><td class="num">293</td><td class="num">14.7</td></tr>
+                <tr><td>Barranquilla</td><td class="num">20</td><td class="num">197</td><td class="num">9.9</td></tr>
+                <tr><td>Chía</td><td class="num">17</td><td class="num">106</td><td class="num">6.2</td></tr>
+                <tr><td>Dosquebradas</td><td class="num">2</td><td class="num">86</td><td class="num">43.0</td></tr>
+                <tr><td>Manizales</td><td class="num">8</td><td class="num">67</td><td class="num">8.4</td></tr>
+                <tr><td>Palmira</td><td class="num">4</td><td class="num">67</td><td class="num">16.8</td></tr>
+                <tr><td>Jamundí</td><td class="num">2</td><td class="num">52</td><td class="num">26.0</td></tr>
+                <tr><td>Total</td><td class="num">332</td><td class="num">4.153</td><td class="num">12.5</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <h3>Por cadena</h3>
+            <p class="tbl-sub">Visitas y unidades vendidas en el acumulado de las ocho rutas.</p>
+            <table class="table-data">
+                <tr><th>Cadena</th><th>Canal</th><th class="num">Visitas</th><th class="num">Unidades</th></tr>
+                <tr><td>Éxito</td><td><span class="pill accent">Moderno</span></td><td class="num">154</td><td class="num">2.107</td></tr>
+                <tr><td>Jumbo</td><td><span class="pill accent">Moderno</span></td><td class="num">89</td><td class="num">915</td></tr>
+                <tr><td>Farmatodo</td><td><span class="pill accent">Moderno</span></td><td class="num">39</td><td class="num">306</td></tr>
+                <tr><td>Mercacentro</td><td><span class="pill warn">Tradicional</span></td><td class="num">6</td><td class="num">223</td></tr>
+                <tr><td>Surtiplaza</td><td><span class="pill warn">Tradicional</span></td><td class="num">5</td><td class="num">146</td></tr>
+                <tr><td>Cañaveral</td><td><span class="pill warn">Tradicional</span></td><td class="num">6</td><td class="num">87</td></tr>
+                <tr><td>Mercamas</td><td><span class="pill warn">Tradicional</span></td><td class="num">2</td><td class="num">86</td></tr>
+                <tr><td>Mercaldas</td><td><span class="pill warn">Tradicional</span></td><td class="num">8</td><td class="num">67</td></tr>
+                <tr><td>Droguerías</td><td><span class="pill accent">Moderno</span></td><td class="num">9</td><td class="num">66</td></tr>
+                <tr><td>Caribe</td><td><span class="pill warn">Tradicional</span></td><td class="num">2</td><td class="num">52</td></tr>
+                <tr><td>Euro</td><td><span class="pill accent">Moderno</span></td><td class="num">10</td><td class="num">42</td></tr>
+                <tr><td>Surtifamiliar</td><td><span class="pill warn">Tradicional</span></td><td class="num">1</td><td class="num">35</td></tr>
+                <tr><td>La Montaña</td><td><span class="pill warn">Tradicional</span></td><td class="num">1</td><td class="num">21</td></tr>
+                <tr><td>Total</td><td></td><td class="num">332</td><td class="num">4.153</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="section-hero"><div class="num">03</div><h2 class="section-title">Premios <em>redimidos</em></h2></div>
+    <p class="section-sub">Material de impulso que ya llegó a manos del consumidor en punto de venta durante las ocho rutas. <strong>Se muestra únicamente lo redimido</strong> — no material recibido ni saldos de inventario.</p>
+
+    <div class="kpi-row">
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-cart-shopping"></i></div><div class="k-lbl">Unidades vendidas</div><h3>4.153</h3><div class="k-note">Venta al consumidor final en las 332 visitas acumuladas.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-handshake"></i></div><div class="k-lbl">Premios redimidos</div><h3>2.090<small> uds.</small></h3><div class="k-note">Entregados al consumidor entre el 4 de septiembre y el 25 de octubre. El FS8 aporta 125.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-scale-balanced"></i></div><div class="k-lbl">Premios por unidad vendida</div><h3>0.50</h3><div class="k-note">Un premio entregado por cada dos unidades vendidas en el acumulado de las ocho rutas.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-scissors"></i></div><div class="k-lbl">Más redimido</div><h3>Scrunchi</h3><div class="k-note">673 unidades · 32.2% de todo lo redimido. En el FS8 el gorro fue la referencia más entregada de la semana (41 unidades).</div></div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Ventas realizadas vs. premios entregados</h3><div class="cb-tag">Fig. 08</div></div>
+        <p class="cb-sub">El material de impulso va al ritmo de la venta: 4.153 unidades vendidas y 2.090 premios entregados en el acumulado de las ocho rutas.</p>
+        <div class="chart-container"><canvas id="chartVentasPremios"></canvas></div>
+    </div>
+
+    <div class="chart-box">
+        <div class="cb-head"><h3>Premios redimidos por referencia</h3><div class="cb-tag">Fig. 09</div></div>
+        <p class="cb-sub">Unidades entregadas al consumidor por cada referencia del kit de impulso GLISS.</p>
+        <div class="chart-container"><canvas id="chartPremiosRedimidos"></canvas></div>
+    </div>
+
+    <div class="table-container full" style="margin-bottom:26px;">
+        <h3>Detalle por referencia</h3>
+        <p class="tbl-sub">Las cuatro referencias del kit de impulso GLISS, con el código de artículo Henkel con el que se legalizan. El scrunchi sigue liderando el acumulado; en el FS8 el gorro fue la referencia más entregada (41 unidades).</p>
+        <table class="table-data">
+            <tr><th>Código</th><th>Referencia</th><th class="num">FS1-FS7</th><th class="num">FS8</th><th class="num">Acumulado</th><th class="num">% del mix</th></tr>
+            <tr><td>HNK000909</td><td>Scrunchi en bolsa celofán GLISS 2026</td><td class="num">647</td><td class="num">26</td><td class="num">673</td><td class="num">32.2%</td></tr>
+            <tr><td>HNK001051</td><td>Gorro con caja GLISS</td><td class="num">461</td><td class="num">41</td><td class="num">502</td><td class="num">24.0%</td></tr>
+            <tr><td>HNK000908</td><td>Funda con caja GLISS 2026</td><td class="num">449</td><td class="num">29</td><td class="num">478</td><td class="num">22.9%</td></tr>
+            <tr><td>HNK000907</td><td>Cepillo con caja GLISS 2026</td><td class="num">408</td><td class="num">29</td><td class="num">437</td><td class="num">20.9%</td></tr>
+            <tr><td>Total</td><td>4 referencias</td><td class="num">1.965</td><td class="num">125</td><td class="num">2.090</td><td class="num">100%</td></tr>
+        </table>
+    </div>
+
+    <!-- 04 -->
+    <div class="section-hero"><div class="num">04</div><h2 class="section-title">Voz del <em>consumidor</em></h2></div>
+    <p class="section-sub">1.660 consumidores encuestados en las 332 visitas acumuladas — un promedio de 5.0 personas abordadas por visita, 134 de ellas en el FS8.</p>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>¿Conocía la marca?</h3><div class="cb-tag">Fig. 10</div></div>
+            <p class="cb-sub">Más de la mitad ya la conocía antes de esta visita — y en el FS8 llega a 66.7%, el nivel más alto de los últimos cinco cortes.</p>
+            <div class="chart-container-sm"><canvas id="chartConoceMarca"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Uso actual de la marca</h3><div class="cb-tag">Fig. 11</div></div>
+            <p class="cb-sub">45% nunca la ha probado — el terreno de conversión más grande.</p>
+            <div class="chart-container-sm"><canvas id="chartUsoMarca"></canvas></div>
+        </div>
+    </div>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>¿Por dónde conoció la marca?</h3><div class="cb-tag">Fig. 12</div></div>
+            <p class="cb-sub">La TV y el propio punto de venta son los canales más mencionados; en el FS8 la TV lidera con 53 menciones.</p>
+            <div class="chart-container-sm"><canvas id="chartCanales"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Percepción de la visita</h3><div class="cb-tag">Fig. 13</div></div>
+            <p class="cb-sub">82.2% se fue con una percepción positiva del punto — y en el FS8 el 77.4% la calificó entre "le gustó" y "le encantó".</p>
+            <div class="chart-container-sm"><canvas id="chartPercepcion"></canvas></div>
+        </div>
+    </div>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Qué piden los consumidores</h3><div class="cb-tag">Fig. 14</div></div>
+            <p class="cb-sub">Promociones y precio, muy por encima de fragancia o empaque, en las ocho rutas.</p>
+            <div class="chart-container-sm"><canvas id="chartAtributos"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Tipo de cabello reportado</h3><div class="cb-tag">Fig. 15</div></div>
+            <p class="cb-sub">Liso, ondulado y teñido concentran el 60% de las encuestas.</p>
+            <div class="chart-container-sm"><canvas id="chartTipoCabello"></canvas></div>
+        </div>
+    </div>
+
+    <div class="func-wrap" style="grid-template-columns:1fr;">
+        <div class="func-block">
+            <div class="func-head"><div class="func-ico"><i class="fa-solid fa-comments"></i></div><div><h3>Producto de interés y valoración</h3><div class="func-sub">Sobre las 1.660 encuestas acumuladas</div></div></div>
+            <div class="func-row"><span class="fr-lbl">Shampoo</span><span class="fr-val">743 (44.9%)</span></div>
+            <div class="func-row"><span class="fr-lbl">Tratamiento / Mascarilla</span><span class="fr-val">355 (21.5%)</span></div>
+            <div class="func-row"><span class="fr-lbl">Acondicionador</span><span class="fr-val">343 (20.7%)</span></div>
+            <div class="func-row"><span class="fr-lbl">Coloración</span><span class="fr-val">145 (8.8%)</span></div>
+            <div class="func-row"><span class="fr-lbl">Styling / Otro</span><span class="fr-val">69 (4.2%)</span></div>
+            <div class="func-note">Opinión promedio del producto: <strong>3.92 / 5</strong> (3.98 en el FS8). El interés sigue concentrado en el ritual básico (shampoo + acondicionador = 65.6%), lo que respalda seguir empujando el combo Ultimate Repair como producto ancla. En el FS8 el shampoo concentra el 51.5% del interés.</div>
+        </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="section-hero"><div class="num">05</div><h2 class="section-title">Actividad de <em>la competencia</em></h2></div>
+    <p class="section-sub">225 de las 311 visitas que respondieron la pregunta (72.3%) reportaron actividad de marcas competidoras en el punto — 546 evidencias registradas en el acumulado, 47 de ellas en el FS8.</p>
+
+    <div class="kpi-row">
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="k-lbl">Visitas con competencia activa</div><h3>72.3<small>%</small></h3><div class="k-note">225 de 311 visitas que respondieron la pregunta.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-tags"></i></div><div class="k-lbl">Evidencias registradas</div><h3>546</h3><div class="k-note">Con foto de respaldo en la mayoría de los casos. 47 evidencias nuevas en el FS8.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-percent"></i></div><div class="k-lbl">Táctica más usada</div><h3>Descuentos</h3><div class="k-note">389 de 528 evidencias con tipo registrado (73.7%) son descuento o promoción. El FS8 suma descuentos del 25% al 50% en Éxito y "pague 2 lleve 4" en Jumbo Hayuelos.</div></div>
+        <div class="kpi-card"><div class="k-ico"><i class="fa-solid fa-crown"></i></div><div class="k-lbl">Competidor más nombrado</div><h3>Pantene</h3><div class="k-note">131 menciones acumuladas, seguido de Elvive/L'Oréal (115) y Dove (60). Head & Shoulders entra con fuerza en el FS4 por el lanzamiento de un producto nuevo.</div></div>
+    </div>
+
+    <div class="chart-split">
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Marcas competidoras más mencionadas</h3><div class="cb-tag">Fig. 16</div></div>
+            <p class="cb-sub">Cada barra es el número de evidencias de campo en las que se identificó esa marca, en el acumulado de las ocho rutas.</p>
+            <div class="chart-container-sm"><canvas id="chartMarcasCompetencia"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-bottom:0;">
+            <div class="cb-head"><h3>Tipo de actividad</h3><div class="cb-tag">Fig. 17</div></div>
+            <p class="cb-sub">Poco más de 3 de cada 4 acciones de la competencia son de precio.</p>
+            <div class="chart-container-sm"><canvas id="chartTiposActividad"></canvas></div>
+        </div>
+    </div>
+    <!-- 07 -->
+    <div class="section-hero"><div class="num">07</div><h2 class="section-title">Evidencia <em>fotográfica</em></h2></div>
+    <p class="section-sub">Registro fotográfico de la ejecución en punto de venta. Va rotando solo, o dale clic para pasar a la siguiente.</p>
+    <div class="carousel">
+        <div class="car-row">
+            <div class="car-side left" id="carSideLeft"><img id="carImgPrev" src="" alt="" referrerpolicy="no-referrer"></div>
+            <div class="car-stage" id="carStage">
+                <button class="car-nav prev" id="carPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                <img id="carImg" src="" alt="" referrerpolicy="no-referrer">
+                <button class="car-nav next" id="carNext"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="car-counter" id="carCounter"></div>
+            </div>
+            <div class="car-side right" id="carSideRight"><img id="carImgNext" src="" alt="" referrerpolicy="no-referrer"></div>
+        </div>
+        <div class="car-caption"><div id="carPdv"></div><div id="carMeta"></div></div>
+    </div>
+
+    <!-- 08 -->
+    <div class="section-hero"><div class="num">08</div><h2 class="section-title">Lectura del <em>corte</em></h2></div>
+        <div class="kpi-row">
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-calendar-check"></i></div><div class="k-lbl">Insight 01</div><h3>Ruta al día</h3><div class="k-note">Cobertura del 100% en los ocho fines de semana: 305 de 305 turnos con cobertura confirmada. El domingo 25 se repuso Éxito Envigado Wow.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-bullseye"></i></div><div class="k-lbl">Insight 02</div><h3>Cierre y mezcla</h3><div class="k-note">FS8: 30 de 30 visitas con venta y 99.6% de la mezcla en GLISS. En el acumulado, 98.5% de tasa de cierre y 88.0% de participación GLISS.</div></div>
+        <div class="kpi-card pos"><div class="k-ico"><i class="fa-solid fa-users"></i></div><div class="k-lbl">Insight 03</div><h3>Reconocimiento de marca</h3><div class="k-note">El 66.7% de los consumidores del FS8 ya conocía la marca, el nivel más alto de los últimos cinco cortes. En el acumulado, el 58.4% la conocía antes de la visita.</div></div>
+        
+    </div>
+
+</div>
+
+<footer class="foot">
+    <div class="foot-in">
+        <div class="foot-top">
+            <div><div class="foot-brand">HENKEL<span class="accent">·</span>GLISS</div><div class="foot-brand-sub">Ejecución en Punto de Venta · Fuerza Comercial Nacional</div></div>
+            <div class="foot-col"><h6>Cobertura</h6><p>6 ciudades activas: Bogotá, Medellín, Cali, Bucaramanga, Barranquilla y Chía.</p><p>332 visitas acumuladas: 305 de 305 turnos con cobertura confirmada (100%, contando reposiciones a la fecha). La ruta está al día.</p></div>
+            <div class="foot-col"><h6>Metodología</h6><p>Captura en campo por visita: ingreso, ventas, premios, voz del consumidor, competencia y salida. La eficacia se cruza contra el cronograma de la ruta (MDF).</p><p>Los indicadores de cobertura se calculan sobre los PDVs y ciudades <em>activos entre el 4 de septiembre y el 25 de octubre</em>, no sobre la ruta completa del mes: una ciudad o un punto que no estaba programado en ninguno de los ocho fines de semana no entra ni en el numerador ni en el denominador.</p><p>La ruta la ejecutan <strong>15 puestos de gestión</strong> del canal moderno. La rotación de personal cambia los nombres del aplicativo, no la estructura de la ruta.</p></div>
+            <div class="foot-col"><h6>Emisión</h6><p>Acumulado de ocho fines de semana de ejecución.</p><p>Periodo: 4 de septiembre al 25 de octubre 2026.</p><p>Documento interno · Henkel GLISS.</p></div>
+        </div>
+        <div class="foot-bottom">
+            <span>Henkel GLISS · Todos los derechos reservados</span>
+            <span>332 visitas · 62 PDVs activos · 6 ciudades · 15 puestos de ruta</span>
+            <span>Próxima emisión · Fin de semana siguiente</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+Chart.register(ChartDataLabels);
+const RED='#E1000F', DEEP='#7a0000', DEEP2='#a30000', LIGHT='#ff5c5c', INK='#241c1c', GOLD='#a37b3a',
+    SLATE='#8a7a7b', SLATE2='#cdc0c1', POS='#0e7a5f', WARN='#a86a1a', NEG='#7a2020';
+const font = { family: 'Plus Jakarta Sans', weight: '600', size: 11 };
+const axisGrid = { grid: { color: '#f1e8e8', drawTicks: false }, ticks: { color: SLATE, font, padding: 8 }, border: { display: false } };
+const axisPlain = { grid: { display: false, drawTicks: false }, ticks: { color: SLATE, font, padding: 8 }, border: { display: false } };
+const donutPalette = [RED, INK, LIGHT, GOLD, DEEP2, SLATE, DEEP, SLATE2, '#c98a7a'];
+
+function donut(id, labels, data) {
+    new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: { labels, datasets: [{ data, backgroundColor: donutPalette, borderColor: '#fff', borderWidth: 3 }] },
+        options: { maintainAspectRatio: false, responsive: true, cutout: '62%',
+            plugins: {
+                legend: { position: 'bottom', labels: { color: INK, font, boxWidth: 10, padding: 14 } },
+                datalabels: { color: '#fff', font: { family: 'Plus Jakarta Sans', weight: '800', size: 11 },
+                    formatter: (v, ctx) => { const total = ctx.chart.data.datasets[0].data.reduce((a,b)=>a+b,0); const pct = total? (v/total*100):0; return pct>=6 ? pct.toFixed(0)+'%' : ''; } }
+            } }
+    });
+}
+function barH(id, labels, data, color) {
+    new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: { labels, datasets: [{ data, backgroundColor: color || RED, borderRadius: 3, barPercentage: 0.65 }] },
+        options: { indexAxis: 'y', maintainAspectRatio: false, responsive: true,
+            plugins: { legend: { display: false }, datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 11 }, anchor: 'end', align: 'end', offset: 6 } },
+            scales: { x: { ...axisGrid, beginAtZero: true }, y: axisPlain } }
+    });
+}
+
+
+const FSCOL=[SLATE2,SLATE,DEEP2,RED,INK,GOLD,'#6b4e88','#0e7a5f'], FSLBL=['FS1 · 4-6 sep','FS2 · 11-13 sep','FS3 · 18-20 sep','FS4 · 25-27 sep','FS5 · 2-4 oct','FS6 · 9-11 oct','FS7 · 16-18 oct','FS8 · 23-25 oct'], FSTXT=[INK,'#fff','#fff','#fff','#fff','#fff','#fff','#fff'];
+function barS(id, labels, data, horiz) {
+    const tot = labels.map((_, i) => data.reduce((a, r) => a + r[i], 0)); const mx = Math.max(...tot);
+    const ds = data.map((r, k) => ({ label: FSLBL[k], data: r, backgroundColor: FSCOL[k], borderRadius: 2, barPercentage: horiz ? 0.7 : 0.45, categoryPercentage: horiz ? 0.9 : 0.6,
+        datalabels: { color: FSTXT[k], font: { family: 'Plus Jakarta Sans', weight: '700', size: 10 }, anchor: 'center', align: 'center', formatter: v => (v / mx >= 0.06 ? v : '') } }));
+    ds.push({ label: 'Total', data: labels.map(() => 0), backgroundColor: 'transparent', borderWidth: 0, barPercentage: horiz ? 0.7 : 0.45, categoryPercentage: horiz ? 0.9 : 0.6,
+        datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 11 }, anchor: 'start', align: horiz ? 'right' : 'top', offset: 4, formatter: (v, c) => tot[c.dataIndex] } });
+    new Chart(document.getElementById(id), { type: 'bar', data: { labels, datasets: ds },
+        options: { indexAxis: horiz ? 'y' : 'x', maintainAspectRatio: false, responsive: true,
+            plugins: { legend: { position: 'bottom', labels: { color: INK, font, boxWidth: 10, padding: 14, filter: i => i.text !== 'Total' } }, tooltip: { filter: i => i.dataset.label !== 'Total' } },
+            scales: horiz ? { x: { ...axisGrid, stacked: true, beginAtZero: true, grace: '8%' }, y: { ...axisPlain, stacked: true } } : { y: { ...axisGrid, stacked: true, beginAtZero: true, grace: '8%' }, x: { ...axisPlain, stacked: true } } } });
+}
+
+function colPct(v) { return v >= 95 ? POS : (v >= 80 ? WARN : NEG); }
+function fmtPct(v) { return (v % 1 === 0) ? String(v) : v.toFixed(1); }
+
+new Chart(document.getElementById('chartCompVentas'), {
+    type: 'bar',
+    data: { labels: ['Día 1 (vie)','Día 2 (sáb)'],
+        datasets: [
+            { label: 'FS1 · 4-6 sep', data: [77,131], backgroundColor: SLATE2, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS2 · 11-13 sep', data: [110,174], backgroundColor: SLATE, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS3 · 18-20 sep', data: [225,445], backgroundColor: DEEP2, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS4 · 25-27 sep', data: [280,291], backgroundColor: RED, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS5 · 2-4 oct', data: [146,212], backgroundColor: INK, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS6 · 9-11 oct', data: [147,201], backgroundColor: GOLD, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS7 · 16-18 oct', data: [180,204], backgroundColor: '#6b4e88', borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS8 · 23-25 oct', data: [126,118], backgroundColor: '#0e7a5f', borderRadius: 3, barPercentage: 0.8 }
+        ] },
+    options: { maintainAspectRatio: false, responsive: true,
+        plugins: { legend: { position: 'bottom', labels: { color: INK, font, boxWidth: 10, padding: 14 } },
+            datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 11 }, anchor: 'end', align: 'end', offset: 4 } },
+        scales: { y: { ...axisGrid, beginAtZero: true }, x: axisPlain } }
+});
+
+new Chart(document.getElementById('chartCompIndicadores'), {
+    type: 'bar',
+    data: { labels: ['Cobertura','Tasa de cierre','Participación GLISS'],
+        datasets: [
+            { label: 'FS1 · 4-6 sep', data: [94.4,98.0,91.0], backgroundColor: SLATE2, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS2 · 11-13 sep', data: [100,97.4,75.4], backgroundColor: SLATE, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS3 · 18-20 sep', data: [87.5,98.0,80.0], backgroundColor: DEEP2, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS4 · 25-27 sep', data: [100,95.0,71.0], backgroundColor: RED, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS5 · 2-4 oct', data: [100,100,100], backgroundColor: INK, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS6 · 9-11 oct', data: [100,100,100], backgroundColor: GOLD, borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS7 · 16-18 oct', data: [100,100,100], backgroundColor: '#6b4e88', borderRadius: 3, barPercentage: 0.8 },
+            { label: 'FS8 · 23-25 oct', data: [100,100,99.6], backgroundColor: '#0e7a5f', borderRadius: 3, barPercentage: 0.8 }
+        ] },
+    options: { indexAxis: 'y', maintainAspectRatio: false, responsive: true,
+        plugins: { legend: { position: 'bottom', labels: { color: INK, font, boxWidth: 10, padding: 14 } },
+            datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 10 }, anchor: 'end', align: 'end', offset: 4, formatter: (v) => (v === null || v === undefined) ? '' : v + '%' } },
+        scales: { x: { ...axisGrid, beginAtZero: true, max: 110 }, y: axisPlain } }
+});
+
+new Chart(document.getElementById('chartCadencia'), {
+    type: 'bar',
+    data: { labels: ['Vie 04','Sáb 05','Dom 06','Vie 11','Sáb 12','Dom 13','Vie 18','Sáb 19','Dom 20','Vie 25','Sáb 26','Dom 27','Vie 02','Sáb 03','Dom 04','Vie 09','Sáb 10','Dom 11','Vie 16','Sáb 17','Dom 18','Vie 23','Sáb 24','Dom 25'], datasets: [{ data: [16,17,18,16,16,7,17,16,16,18,17,5,14,16,17,15,14,2,14,16,15,15,14,1], backgroundColor: [SLATE2,SLATE2,SLATE2,SLATE,SLATE,LIGHT,DEEP2,DEEP2,DEEP2,RED,RED,GOLD,INK,INK,INK,GOLD,GOLD,GOLD,'#6b4e88','#6b4e88','#6b4e88','#0e7a5f','#0e7a5f','#0e7a5f'], borderRadius: 3, barPercentage: 0.6, categoryPercentage: 0.75 }] },
+    options: { maintainAspectRatio: false, responsive: true,
+        plugins: { legend: { display: false }, datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 13 }, anchor: 'end', align: 'end', offset: 4 } },
+        scales: { y: { ...axisGrid, beginAtZero: true, ticks: { ...axisGrid.ticks, stepSize: 5 } }, x: axisPlain } }
+});
+
+barS('chartCobCiudad', ["Bogotá", "Medellín", "Cali", "Ibagué", "Barranquilla", "Bucaramanga", "Chía", "Manizales", "Palmira", "Jamundí", "Dosquebradas"], [[18, 12, 5, 3, 3, 3, 3, 3, 1, 0, 0], [15, 10, 3, 2, 2, 2, 2, 1, 1, 0, 1], [16, 13, 4, 4, 3, 3, 1, 2, 1, 1, 1], [18, 8, 2, 2, 2, 2, 2, 2, 1, 1, 0], [22, 13, 3, 0, 3, 3, 3, 0, 0, 0, 0], [15, 8, 2, 0, 2, 2, 2, 0, 0, 0, 0], [21, 12, 3, 0, 3, 3, 3, 0, 0, 0, 0], [15, 8, 2, 0, 2, 2, 1, 0, 0, 0, 0]], true);
+
+barS('chartCobCadena', ["Éxito", "Jumbo", "Farmatodo", "Mercaldas", "Cañaveral", "Mercacentro", "Surtiplaza", "Euro", "Droguerías", "Mercamas", "Caribe", "La Montaña", "Surtifamiliar"], [[22, 11, 5, 3, 3, 2, 1, 2, 2, 0, 0, 0, 0], [20, 9, 3, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0], [16, 15, 7, 2, 1, 2, 2, 1, 0, 1, 1, 0, 1], [17, 8, 5, 2, 1, 1, 1, 1, 3, 0, 1, 0, 0], [29, 12, 4, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0], [13, 11, 3, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0], [22, 15, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [15, 8, 4, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0]], true);
+
+new Chart(document.getElementById('chartUnidadesDia'), {
+    type: 'line',
+    data: { labels: ['Vie 04','Sáb 05','Dom 06','Vie 11','Sáb 12','Dom 13','Vie 18','Sáb 19','Dom 20','Vie 25','Sáb 26','Dom 27','Vie 02','Sáb 03','Dom 04','Vie 09','Sáb 10','Dom 11','Vie 16','Sáb 17','Dom 18','Vie 23','Sáb 24','Dom 25'], datasets: [{ data: [77,131,124,110,174,54,225,445,338,280,291,57,146,212,240,147,201,39,180,204,222,126,118,12], borderColor: RED, backgroundColor: 'rgba(225,0,15,0.10)', fill: true, tension: 0.3, pointBackgroundColor: RED, pointRadius: 5, borderWidth: 3 }] },
+    options: { maintainAspectRatio: false, responsive: true,
+        plugins: { legend: { display: false }, datalabels: { color: INK, font: { family: 'Plus Jakarta Sans', weight: '800', size: 12 }, align: 'top', offset: 8 } },
+        scales: { y: { ...axisGrid, beginAtZero: true }, x: axisPlain } }
+});
+
+donut('chartMarcaReal', ['GLISS','Palette','Konzil','Balance','Igora','Oxigentas','Persil','Xtreme','M.A.S','Moco de Gorila','Brillance','Otros'], [3655,136,103,100,53,34,31,18,14,5,3,1]);
+
+barS('chartTopProductos', ["Shampoo+Acond. Ultimate Repair (combo)", "GLISS Óleo Oil Elixir 75ml -25", "GLISS SHP Oil Nutritive 400ml", "GLISS TRT Oil Nutritive Mask 400ml -25", "GLISS SHP Ultimate Repair 400ml", "GLISS ACO 200ml Oil Nutritive -25", "GLISS ACO Ultimate Repair 200ml", "GLISS TRT Ultra Repair Mask 400ml -25", "GLISS ACO Express 200ml UltRepair -25", "GLISS SHP FullHairWonder 400ml -25"], [[54, 24, 28, 21, 21, 31, 33, 17, 27, 23], [43, 25, 32, 17, 17, 24, 27, 18, 16, 21], [119, 94, 121, 86, 57, 72, 52, 75, 32, 73], [65, 52, 41, 32, 54, 32, 53, 33, 41, 25], [149, 67, 25, 42, 57, 37, 52, 52, 62, 38], [105, 36, 32, 43, 35, 19, 27, 32, 43, 12], [155, 52, 34, 66, 36, 59, 35, 59, 32, 51], [41, 25, 34, 13, 33, 32, 22, 15, 16, 11]], true);
+
+barS('chartVentasPremios', ["Unidades vendidas", "Premios entregados"], [[332, 195], [338, 125], [1008, 431], [628, 278], [598, 332], [387, 229], [606, 375], [256, 125]], false);
+
+barS('chartPremiosRedimidos', ["Scrunchi en bolsa celofán GLISS", "Gorro con caja GLISS", "Funda con caja GLISS", "Cepillo con caja GLISS"], [[84, 43, 49, 19], [66, 24, 27, 8], [147, 106, 99, 79], [78, 68, 65, 67], [103, 73, 78, 78], [69, 57, 50, 53], [100, 90, 81, 104], [26, 41, 29, 29]], true);
+
+donut('chartConoceMarca', ['Sí la conocía','No la conocía'], [965,688]);
+donut('chartUsoMarca', ['Nunca la ha probado','La usa actualmente','La ha probado antes'], [747,528,379]);
+barH('chartCanales', ['TV','Punto de venta','Redes sociales','Recomendación','Revistas','Radio','Otro'], [405,351,284,230,45,18,15]);
+donut('chartPercepcion', ['Le gustó','Le encantó','Ni fu ni fa','No le gustó'], [860,499,252,43]);
+barH('chartAtributos', ['Promociones y combos','Mejor precio','Mejor resultado','Mejor fragancia','Mayor disponibilidad','Empaque/presentación'], [499,405,351,258,243,191]);
+barH('chartTipoCabello', ['Liso','Ondulado','Teñido/Con color','Seco','Graso','Rizado','Dañado','Afro'], [460,279,248,172,150,150,133,52], LIGHT);
+
+barH('chartMarcasCompetencia', ['Pantene',"Elvive / L'Oréal",'Dove','Herbal Essences','Head & Shoulders','Savital','Sedal','Recamier'], [131,115,60,55,40,30,22,13]);
+donut('chartTiposActividad', ['Descuento/Promoción','Exhibición especial','Mercaderista en el punto','Degustación/Impulso'], [389,89,31,16]);
+
+const GALERIA = [
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1ZSnyu980lt5FOqTKBy8Khpn1ERd8OPwp=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1_O8dYuXzcJaKCJktNZepWO-bkVxcZy-6=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1PLet8iN7AguW_vu2EP294UFyxOo5aUrB=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1stZ5e1UaHwY1W94_oMspqp1pJsi2aYPe=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1tzCYTyDKqIaE2OtoJHcZBJ0f_8gqEfFA=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1d8yaUgeaLPPfzVJf7ghkbhiCLipoAepf=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1VzFZiTyXK3DED5z6AvUN3KiIMqOqGtA3=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1hNFaCpsYPTgoCIk6-nOperyxllNHIP3D=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1X_luMT0CinURcbHYATUNil4oejw2_NFP=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/14p3F_BVpVkxDyjmMx7kQEf6g_29WK6sn=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1zMk1hKLqJprykRW2eSWBEfdipzjOJ_W5=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1YOhgxq4ih-PZSxs8tsgbhclIgiFbTTVt=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1yli7Yfy9qkTokCPkF4J5IJj7QKzEbflt=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1CE_KQfqve4ueKB8SgKAjknXItgCJ4H4c=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1S83rZ8O7CPy51Spu1zg_5dWsT2l3rlCG=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1C2N8Ri2yirBWfT_vkanjRx1z4C5YGG1d=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1I3HwZcCEMPjwe1Hd5kB1RPME9hjJpP8w=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1WacoAvWW-bOz4Uq24ip1cyowuYmDeMNe=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1_I5sBMSnSG0rAM3W9BKXJqdZFm0tLdjA=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1EtQrmggXSl3acM1Tmkx1yoNBqvBZ_GCH=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1xr5vuEXJwZy59H_Uyvdh-wwMN3JvVXYL=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/182ULZbilL9m2o80VtzcgLRxbwwlcqWzV=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1OXjkYaMi0YYFaIZNLCLy6YnEWHy0yIUG=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1PZx1lPSRf34KWmgvNLcMZpkZFjg0gj96=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1PC3F5QOxUCq7-gmI_hBUbZMxMqZ6AJzS=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1GfJTi3gWXzLBZHeZByYNDSwk3YHAA03e=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/15sG8UDfR06Mfdj2xqSaYeHNblbVIpvTW=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/13V_OKeVy3J0FKK24vZhQGzq6n1Hvrz6x=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1a4H6HNzsq8OB5OYOoA6Trbb0P_7lKiQx=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1uIXuiqUpRhZvVajSC9T_aAftamRLQ2f3=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1TDVCoL2oYeDvErs58PsAvlgp2mWh1xG3=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1-M1ZmyBozvCxALG0_R19uvgC-p7-_5RX=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1ubBvC1uxY9rd2yWPBrG_fp2p-huswL9J=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/13OzGEasmvJmWpZdQbfKy81iVoe2z0_l4=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1fwg52g8xKBSKU0xvVL_ruQ4IXMh8_GRo=w1600"},
+  {"pdv": "Ejecución GLISS en punto de venta", "ciudad": "", "asesor": "", "fecha": "18 de octubre 2026", "url": "https://lh3.googleusercontent.com/d/1gUc4jPEhnwQ7CleKbU0T3Pz8Ltif4sDl=w1600"}
+];
+
+let carIndex = 0;
+let carTimer = null;
+function mostrarCarrusel() {
+    const v = GALERIA[carIndex]; if (!v) return;
+    const prevV = GALERIA[(carIndex - 1 + GALERIA.length) % GALERIA.length];
+    const nextV = GALERIA[(carIndex + 1) % GALERIA.length];
+    const img = document.getElementById('carImg');
+    img.style.opacity = 0;
+    const pre = new Image();
+    pre.referrerPolicy = 'no-referrer';
+    pre.onload = function () { img.src = v.url; img.style.opacity = 1; };
+    pre.src = v.url;
+    document.getElementById('carImgPrev').src = prevV.url;
+    document.getElementById('carImgNext').src = nextV.url;
+    document.getElementById('carPdv').textContent = v.pdv;
+    document.getElementById('carMeta').textContent = [v.ciudad, v.asesor, v.fecha].filter(Boolean).join(' · ');
+    document.getElementById('carCounter').textContent = (carIndex + 1) + ' / ' + GALERIA.length;
+}
+function carSiguiente() { carIndex = (carIndex + 1) % GALERIA.length; mostrarCarrusel(); }
+function carAnterior() { carIndex = (carIndex - 1 + GALERIA.length) % GALERIA.length; mostrarCarrusel(); }
+function reiniciarAutoplay() { clearInterval(carTimer); carTimer = setInterval(carSiguiente, 4000); }
+document.getElementById('carNext').addEventListener('click', function (e) { e.stopPropagation(); carSiguiente(); reiniciarAutoplay(); });
+document.getElementById('carPrev').addEventListener('click', function (e) { e.stopPropagation(); carAnterior(); reiniciarAutoplay(); });
+document.getElementById('carStage').addEventListener('click', function (e) {
+    if (e.target.closest('.car-nav')) return;
+    carSiguiente(); reiniciarAutoplay();
+});
+document.getElementById('carSideLeft').addEventListener('click', function () { carAnterior(); reiniciarAutoplay(); });
+document.getElementById('carSideRight').addEventListener('click', function () { carSiguiente(); reiniciarAutoplay(); });
+mostrarCarrusel();
+reiniciarAutoplay();
+</script>
+
+</body>
+</html>
